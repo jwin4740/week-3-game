@@ -1,0 +1,67 @@
+html{
+	background: linear-gradient(to right, #b7c5df, #fbfdfc);
+}
+body{
+	margin: 0px;
+}
+
+.image{
+	border-bottom: solid 1px black;
+	margin: 0px;
+	width: 100%;
+	height: 200px;
+	opacity: 0.7;
+	position: relative;
+}
+
+
+#title{
+	position: absolute;
+	z-index: 2;
+	top: 50px;
+	left: 475px;
+}
+
+.main{
+	float: left;
+	margin: 35px 35px 35px 100px;
+	width: 650px;
+	height: 350px;
+	border: solid 5px black;
+}
+
+
+.drawing{
+	float: right;
+	width: 200px;
+	height: 350px;
+	border: dashed 5px black;
+	margin-right: 175px;
+	margin-top: 35px;
+}
+
+.container{
+
+}
+#board{
+
+	margin: 0 auto;
+	border: solid 2px black;
+	height: 50px;
+	
+}
+#letter{
+	float: left;
+	border-bottom: solid 4px black;
+	width: 30px;
+	height: 30px;
+	margin: 5px;
+	font-weight: 600;
+	font-size: 25px;
+	text-align: center;
+	visibility: visible;
+}
+
+#demo{
+	font-size: 30px;
+}
