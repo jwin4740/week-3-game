@@ -16,30 +16,47 @@ var newPa;
 		var newPa = document.createElement("div");
 		newPa.innerHTML = randomWord[i];
 		mainDiv.appendChild(newPa);
-		newPa.setAttribute("id", "insert");
+		newPa.setAttribute("id", "replace");
 	}
 	console.log(randomWord);
 }
-setUp();
 
+
+
+function guesser (){
 document.onkeyup = function(event){ 
 	
 	userGuess = event.key;
 	var userGuessCap = userGuess.toUpperCase();
-	
-	if (userGuessCap != randomWord[0])
-		{
-			document.getElementById("board").innerHTML = '<div id="replace">' + userGuessCap + '<div>';
-			var mainDiv = document.getElementById("board");
-			for (var i = 1, n = randomWord.length; i < n; i++)
-					{
-						var newPa = document.createElement("div");
-						newPa.innerHTML = randomWord[i];
-						mainDiv.appendChild(newPa);
-						newPa.setAttribute("id", "insert");
-					}	
-		}
-	
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
+		if (userGuessCap != randomWord[i])
+			{
+				document.getElementById("board").innerHTML = '<div id="replace">' + userGuessCap + '<div>';
+				var mainDiv = document.getElementById("board");
+				for (var j = 1, n = randomWord.length; j < n; j++)
+						{
+							var newPa = document.createElement("div");
+							newPa.innerHTML = randomWord[i];
+							mainDiv.appendChild(newPa);
+							newPa.setAttribute("id", "insert");
+						}	
+			}
+
+		else if (userGuessCap == randomWord[i])
+			{
+				document.getElementById("board").innerHTML = '<div id="insert">' + userGuessCap + '<div>';
+				var mainDiv = document.getElementById("board");
+				for (var k = 1, n = randomWord.length; i < n; k++)
+						{
+							var newPa = document.createElement("div");
+							newPa.innerHTML = randomWord[i];
+							mainDiv.appendChild(newPa);
+							newPa.setAttribute("id", "replace");
+						}	
+			}
+
+	}
 	// if 
 	// for (var i = 1, n = randomWord.length; i < n; i++)
 				
@@ -52,3 +69,13 @@ document.onkeyup = function(event){
 	// 			}
 
 };
+}
+
+setUp();
+
+do {
+
+	guesser();
+
+}
+while ( win == false);
