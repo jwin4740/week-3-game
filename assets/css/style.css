@@ -1,5 +1,5 @@
 html{
-	background: linear-gradient(to right, #b7c5df, #fbfdfc);
+	background-color: #b7c5df;
 }
 body{
 	margin: 0px;
@@ -44,7 +44,6 @@ body{
 #board{
 
 	margin: 0 auto;
-	border: solid 2px black;
 	height: 50px;
 	font-weight: 600;
 	font-size: 25px;
@@ -52,7 +51,22 @@ body{
 }
 
 #insert{
-	display: inline;
+	display: inline-block;
+	width: 50px;
 	font-size: 30px;
 	font-weight: 700px;
+	border-bottom: solid 3px black;
+	margin-left: 5px;
+	text-align: center;
+	color: black;
+}
+
+#replace{
+	display: inline-block;
+	width: 50px;
+	font-size: 30px;
+	font-weight: 700px;
+	margin-left: 5px;
+	text-align: center;
+	color: black;
 }
