@@ -2,20 +2,27 @@
 
 var bears = ["B", "E", "A", "R", "S"];
 var packers = ["P", "A", "C", "K", "E", "R", "S"];
-var five = [" ", " ", " ", " ", " "];
 
+var word = [bears, packers];
+var randomWord;
 
-// insert the words in the document
-var x = document.getElementById("board");
-
-for (var i = 0, n = bears.length; i < n; i++)
-{
-   x.innerHTML += '<div id="letter">' + bears[i] + '</div>';
+    function setUp(){
+    randomWord = word[Math.floor(Math.random() * word.length)];
+    var mainDiv = document.getElementById("board");
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
+		var newPa = document.createElement("div");
+		newPa.innerHTML = "-";
+		mainDiv.appendChild(newPa);
+		newPa.setAttribute("id", "insert");
+	}
 }
+setUp();
+	
 
-// for (var i = 0, n = packers.length; i < n; i++)
-// {
-//    x.innerHTML += '<div class="letter">' + packers[i] + '</div>';
-// }
 
-$("#letter:eq(0)").hide();
+// document.onkeyup = function(event){
+
+
+
+	
