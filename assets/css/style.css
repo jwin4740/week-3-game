@@ -62,17 +62,7 @@ body{
 	
 }
 
-#hidden{
-	display: inline-block;
-	width: 50px;
-	font-size: 30px;
-	font-weight: 700px;
-	border-bottom: solid 3px black;
-	margin-left: 5px;
-	text-align: center;
-	color: black;
-	
-}
+
 
 #replace{
 	display: inline-block;
@@ -85,7 +75,7 @@ body{
 	color: #b7c5df;
 }
 
-#newinsert{
+/*#newinsert{
 	display: inline-block;
 	width: 50px;
 	font-size: 30px;
@@ -95,3 +85,4 @@ body{
 	text-align: center;
 	color: #b7c5df;
 }
+*/
