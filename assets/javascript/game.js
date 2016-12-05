@@ -8,6 +8,7 @@ var word = [bears, packers];
 var randomWord;
 var newDiv;
 
+
     function setUp(){
 	    randomWord = word[Math.floor(Math.random() * word.length)];
 	    var blankDiv = document.getElementById("board");
@@ -16,22 +17,17 @@ var newDiv;
 				var newDiv = document.createElement("div");
 				newDiv.innerHTML = randomWord[i];
 				blankDiv.appendChild(newDiv);
-				newDiv.setAttribute("id", "child");
 				newDiv.setAttribute("class", "insert");
 				
+								
 			}
 		console.log(randomWord);
 }
 
-function reveal(){
-	var div = document.getElementById("replace");
-	div.setAttribute("class", "insert");
-}
-
-function keepHidden(){
-	var div = document.getElementById("replace");
-	div.setAttribute("class", "keepHidden"); 
-}
+// function reveal(){
+// 	var div = document.getElementById("child");
+// 	div.setAttribute("class", "replace");
+// }
 
 // function clearBoard() {
    
@@ -40,16 +36,21 @@ function keepHidden(){
 //     div.removeChild(div.firstChild);
 // }
 // }
+function changeTextBefore(){
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
+			var changer = document.getElementsByClassName("insert");
+			changer[i].textContent = "Z";
+	}
 
-function changeText(){
-	document.getElementById("replace").textContent = "Paragraph changed!";
 }
 
 
 
 
-setUp();
 
+setUp();
+changeTextBefore();
 
 document.onkeyup = function(event){ 
 	
@@ -57,27 +58,28 @@ document.onkeyup = function(event){
 	var userGuessCap = userGuess.toUpperCase();
 	for (var i = 0, n = randomWord.length; i < n; i++)
 	{
-			if (userGuessCap != randomWord[i])
+		
+		function reveal(){
+			var changer = document.getElementsByClassName("insert");
+			changer[i].textContent = randomWord[i];
+			changer[i].style.color = "black";
+			changer[i].style.borderColor = "#b7c5df";
+			// newDiv.setAttribute("id", "replace");
+		}
+			 if (userGuessCap == randomWord[i])
 			{
-				var changer = document.getElementsByClassName("insert");
-				changer[3].textContent = "X";
+				reveal();
 
-			}
-			
-			
-
-			
+			}		
 	}
-	
-
 };
 
 
 
 
-// do {
+// // do {
 
-// 	guesser();
+// // 	guesser();
 
-// }
-// while ( win == false);
+// // }
+// // while ( win == false);
