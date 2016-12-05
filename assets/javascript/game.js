@@ -4,50 +4,36 @@ var bears = ["B", "E", "A", "R", "S"];
 var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
 
-var word = [bears, packers];
+var word = [bears, packers, fumble];
 var randomWord;
-var newDiv;
+var zCounter;
 
+// START set up functions to be used
 
-    function setUp(){
-	    randomWord = word[Math.floor(Math.random() * word.length)];
-	    var blankDiv = document.getElementById("board");
-		for (var i = 0, n = randomWord.length; i < n; i++)
-			{
-				var newDiv = document.createElement("div");
-				newDiv.innerHTML = randomWord[i];
-				blankDiv.appendChild(newDiv);
-				newDiv.setAttribute("class", "insert");
-				
-								
-			}
-		console.log(randomWord);
+function setUp(){
+	randomWord = word[Math.floor(Math.random() * word.length)];
+	var blankDiv = document.getElementById("board");
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
+		var newDiv = document.createElement("div");
+		newDiv.innerHTML = randomWord[i];
+		blankDiv.appendChild(newDiv);
+		newDiv.setAttribute("class", "insert");
+		zCounter = randomWord.length;					
+	}
+	console.log(randomWord);
+	console.log(zCounter);
 }
 
-// function reveal(){
-// 	var div = document.getElementById("child");
-// 	div.setAttribute("class", "replace");
-// }
-
-// function clearBoard() {
-   
-// var div = document.getElementById("board");
-// while (div.hasChildNodes()) {   
-//     div.removeChild(div.firstChild);
-// }
-// }
 function changeTextBefore(){
 	for (var i = 0, n = randomWord.length; i < n; i++)
 	{
-			var changer = document.getElementsByClassName("insert");
-			changer[i].textContent = "Z";
+		var changer = document.getElementsByClassName("insert");
+		changer[i].textContent = "Z";
 	}
-
 }
 
-
-
-
+// END set up functions to be used
 
 setUp();
 changeTextBefore();
@@ -56,6 +42,7 @@ document.onkeyup = function(event){
 	
 	userGuess = event.key;
 	var userGuessCap = userGuess.toUpperCase();
+
 	for (var i = 0, n = randomWord.length; i < n; i++)
 	{
 		
@@ -69,10 +56,17 @@ document.onkeyup = function(event){
 			 if (userGuessCap == randomWord[i])
 			{
 				reveal();
-
-			}		
+				zCounter--;
+				console.log(zCounter);	
+			}
+			
 	}
+		if (zCounter <= 0)
+			{
+				alert("You win!");
+			}
 };
+
 
 
 
