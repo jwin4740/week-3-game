@@ -4,25 +4,52 @@ var bears = ["B", "E", "A", "R", "S"];
 var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
 
-var word = [bears, packers, fumble];
+var word = [bears, packers];
 var randomWord;
-var newPa;
+var newDiv;
 
     function setUp(){
-    randomWord = word[Math.floor(Math.random() * word.length)];
-    var mainDiv = document.getElementById("board");
-	for (var i = 0, n = randomWord.length; i < n; i++)
-		{
-			var newPa = document.createElement("div");
-			newPa.innerHTML = randomWord[i];
-			mainDiv.appendChild(newPa);
-			newPa.setAttribute("id", "replace");
-		}
-	console.log(randomWord);
+	    randomWord = word[Math.floor(Math.random() * word.length)];
+	    var blankDiv = document.getElementById("board");
+		for (var i = 0, n = randomWord.length; i < n; i++)
+			{
+				var newDiv = document.createElement("div");
+				newDiv.innerHTML = randomWord[i];
+				blankDiv.appendChild(newDiv);
+				newDiv.setAttribute("id", "child");
+				newDiv.setAttribute("class", "insert");
+				
+			}
+		console.log(randomWord);
+}
+
+function reveal(){
+	var div = document.getElementById("replace");
+	div.setAttribute("class", "insert");
+}
+
+function keepHidden(){
+	var div = document.getElementById("replace");
+	div.setAttribute("class", "keepHidden"); 
+}
+
+// function clearBoard() {
+   
+// var div = document.getElementById("board");
+// while (div.hasChildNodes()) {   
+//     div.removeChild(div.firstChild);
+// }
+// }
+
+function changeText(){
+	document.getElementById("replace").textContent = "Paragraph changed!";
 }
 
 
+
+
 setUp();
+
 
 document.onkeyup = function(event){ 
 	
@@ -30,43 +57,18 @@ document.onkeyup = function(event){
 	var userGuessCap = userGuess.toUpperCase();
 	for (var i = 0, n = randomWord.length; i < n; i++)
 	{
-		if (userGuessCap != randomWord[0])
+			if (userGuessCap != randomWord[i])
 			{
-				document.getElementById("board").innerHTML = '<div id="replace">' + userGuessCap + '<div>';
-				var mainDiv = document.getElementById("board");
-				for (var j = 1, n = randomWord.length; j < n; j++)
-						{
-							var newPa = document.createElement("div");
-							newPa.innerHTML = randomWord[j];
-							mainDiv.appendChild(newPa);
-							newPa.setAttribute("id", "insert");
-						}	
+				var changer = document.getElementsByClassName("insert");
+				changer[3].textContent = "X";
+
 			}
+			
+			
 
-		// else if (userGuessCap == randomWord[0])
-		// 	{
-		// 		document.getElementById("board").innerHTML = '<div id="insert">' + userGuessCap + '<div>';
-		// 		var mainDiv = document.getElementById("board");
-		// 		for (var k = 1, n = randomWord.length; i < n; k++)
-		// 				{
-		// 					var newPa = document.createElement("div");
-		// 					newPa.innerHTML = randomWord[0];
-		// 					mainDiv.appendChild(newPa);
-		// 					newPa.setAttribute("id", "replace");
-		// 				}	
-		// 	}
-
+			
 	}
-	// if 
-	// for (var i = 1, n = randomWord.length; i < n; i++)
-				
-				
-	// 						var newPa = document.createElement("div");
-	// 						newPa.innerHTML = "-";
-	// 						mainDiv.appendChild(newPa);
-	// 						newPa.setAttribute("id", "replace");
-	// 					}
-	// 			}
+	
 
 };
 
