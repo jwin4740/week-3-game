@@ -5,13 +5,10 @@ var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
 var safety = ["S", "A", "F", "E", "T", "Y"];
 
-var word = [bears, packers];
+var word = [bears];
 var randomWord;
 var counter;
 var guessed;
-var boolGuess;
-var guessCounter;
-var wrongGuessCounter = 0;
 
 // START set up functions to be used
 
@@ -30,17 +27,22 @@ function setUp(){
 	console.log(counter);
 }
 
-function wrongGuess(){
-    var blankP = document.getElementById("guesses");
-	var newP = document.createElement("p");
-	newP.innerHTML = guessed;
-	blankP.appendChild(newP);
-	newP.setAttribute("class", "guesser");
+// function changeTextBefore(){
+// 	for (var i = 0, n = randomWord.length; i < n; i++)
+// 	{
+// 		var changer = document.getElementsByClassName("insert");
+// 		changer[i].textContent = "Z";
+// 	}
+// }
+
+function lettersGuessed(){
+	
 }
+
 // END set up functions to be used
 
 setUp();
-
+// changeTextBefore();
 
 function reveal(i){
 			var changer = document.getElementsByClassName("insert");
@@ -54,7 +56,6 @@ document.onkeyup = function(event){
 	
 	userGuess = event.key;
 	var userGuessCap = userGuess.toUpperCase();
-	guessCounter = 0;
 	
 
 	for (var i = 0, n = randomWord.length; i < n; i++)
@@ -65,34 +66,30 @@ document.onkeyup = function(event){
 			counter--;
 			console.log(counter);	
 		}
-
+	}
+	
+		 	
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
 		if (userGuessCap != randomWord[i])
 		{
-		 	guessCounter++;
-		 	
-		 	guessed = userGuessCap;
-		 	console.log("Guess counter is: " + guessCounter);
+			guessed = randomWord;
 		}
-	}
- 		
-        if (guessCounter == randomWord.length)
-        {
-   			wrongGuess();
-   			wrongGuessCounter++;
-   			console.log("Wrong is: " + wrongGuessCounter);
-        }
-	
-        if (wrongGuessCounter == 5)
-	{
-		document.getElementById("lose").style.display = "block";
-	}
+	}	
 
-	// if (counter <= 0)
-	// {
-	// 	document.getElementById("win").style.display = "block";
-	// }
+	var blankP = document.getElementById("guesses");
+	var newP = document.createElement("p");
+	newP.innerHTML = guessed;
+	blankP.appendChild(newP);
+	newP.setAttribute("class", "guesser");
+
 	
-	
+
+
+	if (counter <= 0)
+	{
+		document.getElementById("any").style.display = "block";
+	}
 	
 };
 
