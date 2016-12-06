@@ -3,10 +3,12 @@
 var bears = ["B", "E", "A", "R", "S"];
 var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
+var safety = ["S", "A", "F", "E", "T", "Y"];
 
-var word = [bears, packers, fumble];
+var word = [bears];
 var randomWord;
-var zCounter;
+var counter;
+var guessed;
 
 // START set up functions to be used
 
@@ -19,52 +21,76 @@ function setUp(){
 		newDiv.innerHTML = randomWord[i];
 		blankDiv.appendChild(newDiv);
 		newDiv.setAttribute("class", "insert");
-		zCounter = randomWord.length;					
+		counter = randomWord.length;					
 	}
 	console.log(randomWord);
-	console.log(zCounter);
+	console.log(counter);
 }
 
-function changeTextBefore(){
-	for (var i = 0, n = randomWord.length; i < n; i++)
-	{
-		var changer = document.getElementsByClassName("insert");
-		changer[i].textContent = "Z";
-	}
+// function changeTextBefore(){
+// 	for (var i = 0, n = randomWord.length; i < n; i++)
+// 	{
+// 		var changer = document.getElementsByClassName("insert");
+// 		changer[i].textContent = "Z";
+// 	}
+// }
+
+function lettersGuessed(){
+	
 }
 
 // END set up functions to be used
 
 setUp();
-changeTextBefore();
+// changeTextBefore();
+
+function reveal(i){
+			var changer = document.getElementsByClassName("insert");
+			changer[i].textContent = randomWord[i];
+			changer[i].style.color = "black";
+			changer[i].style.borderColor = "#b7c5df";
+			
+		}
 
 document.onkeyup = function(event){ 
 	
 	userGuess = event.key;
 	var userGuessCap = userGuess.toUpperCase();
+	
 
 	for (var i = 0, n = randomWord.length; i < n; i++)
 	{
-		
-		function reveal(){
-			var changer = document.getElementsByClassName("insert");
-			changer[i].textContent = randomWord[i];
-			changer[i].style.color = "black";
-			changer[i].style.borderColor = "#b7c5df";
-			// newDiv.setAttribute("id", "replace");
+		if (userGuessCap == randomWord[i])
+		{
+			reveal(i);
+			counter--;
+			console.log(counter);	
 		}
-			 if (userGuessCap == randomWord[i])
-			{
-				reveal();
-				zCounter--;
-				console.log(zCounter);	
-			}
-			
 	}
-		if (zCounter <= 0)
-			{
-				alert("You win!");
-			}
+	
+		 	
+	for (var i = 0, n = randomWord.length; i < n; i++)
+	{
+		if (userGuessCap != randomWord[i])
+		{
+			guessed = randomWord;
+		}
+	}	
+
+	var blankP = document.getElementById("guesses");
+	var newP = document.createElement("p");
+	newP.innerHTML = guessed;
+	blankP.appendChild(newP);
+	newP.setAttribute("class", "guesser");
+
+	
+
+
+	if (counter <= 0)
+	{
+		document.getElementById("any").style.display = "block";
+	}
+	
 };
 
 

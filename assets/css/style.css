@@ -61,18 +61,16 @@ body{
 	color: #b7c5df;
 	
 }
-
-.locked{
+.guesser{
 	display: inline-block;
 	width: 50px;
 	font-size: 30px;
 	font-weight: 700px;
-	border-bottom: solid 3px black;
 	margin-left: 5px;
 	text-align: center;
 	color: black;
-	
 }
+
 
 
 
@@ -88,25 +86,3 @@ body{
 }
 
 
-.keepHidden{
-	display: inline-block;
-	width: 50px;
-	border-bottom: solid 3px black;
-	font-size: 30px;
-	font-weight: 700px;
-	margin-left: 5px;
-	text-align: center;
-	color: red;
-}
-
-/*#newinsert{
-	display: inline-block;
-	width: 50px;
-	font-size: 30px;
-	font-weight: 700px;
-	border-bottom: solid 3px black;
-	margin-left: 5px;
-	text-align: center;
-	color: #b7c5df;
-}
-*/
