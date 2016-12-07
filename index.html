@@ -17,22 +17,28 @@
             <div class="marqueetop"><span id="title">NFL Themed Hangman</span></div>
         </header>
         <!-- <button onclick="reload()" id="replay"> Play Again</button> -->
-        <section class="main">
-            <h1> Let's play hangman</h1>
-            <div id="board">
-            </div>
-            <h2> Guesses </h2>
-            <div id="guesses">
-            </div>
-            <div id="win" style="text-align: center; font-size: 40px; display: none;"><strong> You Won!!!</strong></div>
-            <div id="lose" style="text-align: center; font-size: 40px; display: none;"><strong> You Lose!!!</strong></div>
-        </section>
-        
-        <section class="drawing">
-        </section>
-        <div>
-            <div class="marqueebottom"><span id="win"> WINS: &nbsp; &nbsp; </span><span id="loss"> LOSSES: &nbsp; &nbsp;</span></div>
-        </div>
+        <main class="main">
+          <div class="buttons">
+            <button onclick="reload();"
+            class="replay"> PLAY AGAIN</button>
+          </div>
+
+            <section class="content">
+                <h1> Let's play hangman</h1>
+                <div id="board">
+                </div>
+                <h2> Guesses </h2>
+                <div id="guesses">
+                </div>
+                <div id="win" style="text-align: center; font-size: 40px; display: none;"><strong> You Won!!!</strong></div>
+                <div id="lose" style="text-align: center; font-size: 40px; display: none;"><strong> You Lose!!!</strong></div>
+            </section>
+            <section class="drawing">
+            </section>
+        </main>
+        <footer>
+            <div class="marqueebottom"><span style="margin-right: 60px;" id="win"> WINS: <span id="winner"></span> </span><span id="loss"> LOSSES: <span id="loser"></span></span></div>
+        </footer>
     </div>
     <script type="text/javascript" src="assets/javascript/game.js"></script>
     <script type='text/javascript' src='http://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>

@@ -29,7 +29,25 @@ body {
     background-image: url(../images/scoreboard2.jpg);
 }
 
+main{
+	margin: 0px 60px 50px 60px;
+}
 
+.buttons{
+	
+	margin: 10px 10px 10px 0px;
+}
+
+.replay{
+	width: 480px;
+	height: 50px;
+	cursor: pointer;
+	border-color: orange;
+	border-radius: 2px;
+	background-color: orange;
+	color: black;
+	font-size: 30px;
+}
 
 #title {
     color: yellow;
@@ -59,22 +77,21 @@ body {
     letter-spacing: 2px;
 }
 
-section.main {
+section.content {
 	float: left;
     position: relative;
     width: 450px;
     height: 350px;
-    border: solid 5px black;
+    border: solid 15px black;
 }
 
 section.drawing {
    
-   float: left;
+    float: right;
     width: 200px;
     height: 350px;
     border: dashed 5px black;
-   
-    margin-top: 35px;
+    margin-right: 75px;
 }
 
 #board {
@@ -88,38 +105,47 @@ section.drawing {
 .insert {
     display: inline-block;
     padding-left: 8px;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 700px;
     border-bottom: solid 3px black;
     margin-left: 10px;
     text-align: center;
-    color: #b7c5df;
+    color: transparent;
 }
 
 .guesser {
     display: inline-block;
     width: 50px;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 700px;
-    margin-left: 5px;
+    margin-left: 6px;
     text-align: center;
     color: black;
 }
 
-#replace {
-    display: inline-block;
-    width: 50px;
-    border-bottom: solid 3px black;
-    font-size: 30px;
-    font-weight: 700px;
-    margin-left: 5px;
-    text-align: center;
-    color: #b7c5df;
-}
+
 
 
 /*Scroll animation*/
+.winner{
+	color: green;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: 0px;
+    letter-spacing: 2px;
 
+}
+
+.loser{
+	color: red;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: 0px;
+    letter-spacing: 2px;
+
+}
 .marqueebottom {
 	clear: both;
 	position: absolute;
@@ -129,4 +155,13 @@ section.drawing {
     padding-bottom: 0px;
     overflow: hidden;
     background-image: url(../images/scoreboard2.jpg);
+}
+
+span{
+	display: inline;
+
+}
+
+p{
+	display: inline;
 }

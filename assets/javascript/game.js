@@ -13,6 +13,8 @@ var boolGuess;
 var guessCounter;
 var wrongGuessCounter = 0;
 var con;
+var winCounter = 0;
+var lossCounter = 0;
 
 // START set up functions to be used
 
@@ -43,7 +45,7 @@ function reveal(i){
 			var changer = document.getElementsByClassName("insert");
 			changer[i].textContent = randomWord[i];
 			changer[i].style.color = "black";
-			changer[i].style.borderColor = "#b7c5df";
+			changer[i].style.borderColor = "transparent";
 			
 }
 
@@ -64,9 +66,38 @@ while (clearBoard.hasChildNodes()) {
 function reload(){
 	location.reload();
 }
+
+
+function setWins(){
+	var spanDiv = document.getElementById("winner");
+	var newDiv = document.createElement("p");
+	newDiv.innerHTML = winCounter;
+	spanDiv.appendChild(newDiv);
+		
+}
+function setlosses(){
+	var spanDiv = document.getElementById("loser");
+	var newDiv = document.createElement("p");
+	newDiv.innerHTML = lossCounter;
+	spanDiv.appendChild(newDiv);
+	
+}
+
+function winCount(){
+	var changer = document.getElementById("winner");
+	changer.textContent = winCounter;
+}
+
+function lossCount(){
+	var changer = document.getElementById("loser");
+	changer.textContent = lossCounter;
+}
+
+
+
 setUp();
-
-
+setWins();
+setlosses();
 
 
 document.onkeyup = function(event){ 
@@ -103,19 +134,26 @@ document.onkeyup = function(event){
 	
         if (wrongGuessCounter == 5)
 	{
+		lossCounter++;
+		
+
 		setTimeout(function() { confirm("Play again???"); }, 10);
 		document.getElementById("lose").style.display = "block";
-		
+		lossCount();
 			
 	}
 
 	if (counter <= 0)
 	{	
+		winCounter++;
+		winCount();
 		document.getElementById("win").style.display = "block";
 		setTimeout(function() { confirm("Play again??? Click 'Play again' button"); }, 500);
 		ev.stopPropagation();
 		
-	}	
+	}
+
+		
 };
 
 
@@ -150,7 +188,7 @@ $(function(){
     //'left' or 'right'
     direction: 'left',
     //true or false - should the marquee be duplicated to show an effect of continues flow
-    duplicated: true
+    duplicated: false
 });
 });
 	
