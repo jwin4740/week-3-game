@@ -33,18 +33,30 @@ body{
 	font-family: 'Allerta Stencil', sans-serif; 
   	margin: 0px;
   	opacity: 0.75;
-  	text-
+  	letter-spacing: 5px;
 }
-#score{
+#win{
 	
-	
-	color: white;
-	font-size: 25px;
-	font-weight: 600;
+	color: green;
+	font-size: 40px;
+	font-weight: 700;
 	font-family: 'Allerta Stencil', sans-serif; 
-  background: -webkit-linear-gradient(red, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  	margin: 0px;
+  	
+  	letter-spacing: 2px;
+	
+}
+
+#loss{
+	
+	color: red;
+	font-size: 40px;
+	font-weight: 700;
+	font-family: 'Allerta Stencil', sans-serif; 
+  	margin: 0px;
+  	
+  	letter-spacing: 2px;
+	
 }
 .main{
 	position: relative;

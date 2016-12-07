@@ -127,9 +127,9 @@ document.onkeyup = function(event){
 $(function(){
    $('.marquee').marquee({
     //speed in milliseconds of the marquee
-    duration: 5000,
+    duration: 7500,
     //gap in pixels between the tickers
-    gap: 200,
+    gap: 750,
     //time in milliseconds before the marquee will start animating
     delayBeforeStart: 0,
     //'left' or 'right'
