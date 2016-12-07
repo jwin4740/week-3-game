@@ -2,18 +2,22 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
+      <!-- Bootstrap File -->
+  
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  
     <link rel="stylesheet" href="assets/css/style.css">
     
+    <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
     <title>Hangman NFL</title>
   </head>
   <body>
-  <header class="top">
-      <img class="image" src="assets/images/nflbanner.jpg" alt="nfl image">
-      <div class="header"> 
-        <h1 id="title"> HANGMAN NFL THEMED</h1>
-      </div>
-  </header>
-
+  <div class="marquee"><p id="title"> NFL Themed Hangman</p></div>
+ 
+  <div id="totustuus">
+  <!-- <button onclick="reload()" id="replay"> Play Again</button> -->
   <section class="main">
     <h1> Let's play hangman</h1>
         <div id="board">
@@ -32,6 +36,8 @@
   <section class="drawing">
     
   </section> 
-  <script type="text/javascript" src="assets/javascript/game.js"></script>    
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  </div> 
+  <script type='text/javascript' src='http://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js'></script>   
   </body>
 </html>

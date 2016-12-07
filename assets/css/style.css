@@ -1,40 +1,68 @@
 html{
-	background-color: #b7c5df;
+	background: url(../images/nfllogohope.jpg) no-repeat center center fixed;
+	-webkit-background-size: 100% auto;
+
+-moz-background-size: 100% auto;
+
+-ms-background-size: 100% auto;
+
+-o-background-size: 100% auto;
+
+background-size: 100% auto;
+overflow: hidden;
 }
+
 body{
+	background-color: transparent;
+	margin: 0px;
+	
+}
+
+
+
+#totustuus{
 	margin: 0px;
 }
 
-.image{
-	border-bottom: solid 1px black;
-	margin: 0px;
-	width: 100%;
-	height: 200px;
-	opacity: 0.7;
-	position: relative;
-}
 
 
 #title{
-	position: absolute;
-	z-index: 2;
-	top: 50px;
-	left: 475px;
+	color: yellow;
+	font-size: 60px;
+	font-weight: 600;
+	font-family: 'Allerta Stencil', sans-serif; 
+  	margin: 0px;
+  	opacity: 0.75;
+  	text-
 }
-
+#score{
+	
+	
+	color: white;
+	font-size: 25px;
+	font-weight: 600;
+	font-family: 'Allerta Stencil', sans-serif; 
+  background: -webkit-linear-gradient(red, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .main{
+	position: relative;
 	float: left;
-	margin: 35px 35px 35px 100px;
-	width: 650px;
+	top: 175px;
+	left: 25px;
+	width: 450px;
 	height: 350px;
 	border: solid 5px black;
 }
 
 
 .drawing{
+	position: relative;
 	float: right;
 	width: 200px;
 	height: 350px;
+	top: 135px;
 	border: dashed 5px black;
 	margin-right: 175px;
 	margin-top: 35px;
@@ -85,4 +113,13 @@ body{
 	color: #b7c5df;
 }
 
+/*Scroll animation*/
 
+
+
+.marquee {
+	margin: 0px;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(../images/scoreboard.jpg);
+}

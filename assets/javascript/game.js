@@ -12,6 +12,7 @@ var guessed;
 var boolGuess;
 var guessCounter;
 var wrongGuessCounter = 0;
+var con;
 
 // START set up functions to be used
 
@@ -37,10 +38,6 @@ function wrongGuess(){
 	blankP.appendChild(newP);
 	newP.setAttribute("class", "guesser");
 }
-// END set up functions to be used
-
-setUp();
-
 
 function reveal(i){
 			var changer = document.getElementsByClassName("insert");
@@ -48,7 +45,29 @@ function reveal(i){
 			changer[i].style.color = "black";
 			changer[i].style.borderColor = "#b7c5df";
 			
-		}
+}
+
+function reset(){
+	var clearBoard = document.getElementById("board");
+	// Get the <ul> element with id="myList"
+while (clearBoard.hasChildNodes()) {   
+    clearBoard.removeChild(clearBoard.firstChild);
+}
+}
+// END set up functions to be used
+
+// document.getElementById("replay").addEventListener("click", myFunction);
+
+// function myFunction() {
+//     document.getElementById("replay").innerHTML = reset();
+// }
+function reload(){
+	location.reload();
+}
+setUp();
+
+
+
 
 document.onkeyup = function(event){ 
 	
@@ -84,19 +103,43 @@ document.onkeyup = function(event){
 	
         if (wrongGuessCounter == 5)
 	{
+		setTimeout(function() { confirm("Play again???"); }, 10);
 		document.getElementById("lose").style.display = "block";
+		
+			
 	}
 
-	// if (counter <= 0)
-	// {
-	// 	document.getElementById("win").style.display = "block";
-	// }
-	
-	
-	
+	if (counter <= 0)
+	{	
+		document.getElementById("win").style.display = "block";
+		setTimeout(function() { confirm("Play again??? Click 'Play again' button"); }, 500);
+		ev.stopPropagation();
+		
+	}	
 };
 
 
+
+// scroll animation //
+
+
+
+$(function(){
+   $('.marquee').marquee({
+    //speed in milliseconds of the marquee
+    duration: 5000,
+    //gap in pixels between the tickers
+    gap: 200,
+    //time in milliseconds before the marquee will start animating
+    delayBeforeStart: 0,
+    //'left' or 'right'
+    direction: 'right',
+    //true or false - should the marquee be duplicated to show an effect of continues flow
+    duplicated: true
+});
+});
+
+	
 
 
 
