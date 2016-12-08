@@ -4,16 +4,18 @@ var bears = ["B", "E", "A", "R", "S"];
 var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
 var safety = ["S", "A", "F", "E", "T", "Y"];
-
-var word = [bears, packers];
+var cowboys = ["C", "O", "W", "B", "O", "Y", "S"];
+var validLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var word = [bears, cowboys];
 var randomWord;
 var counter;
 var guessed;
 var guessCounter;
 var wrongGuessCounter = 0;
-
+var boolWin = false;
 var winCounter = 0;
 var lossCounter = 0;
+var allLettersGuessed = "";
 
 // START set up functions to be used
 
@@ -42,21 +44,21 @@ function reset() {
     setUp();
     return;
 
-}
+};
 
 function setUp() {
     randomWord = word[Math.floor(Math.random() * word.length)];
     var blankDiv = document.getElementById("board");
     for (var i = 0, n = randomWord.length; i < n; i++) {
         var newDiv = document.createElement("div");
-        newDiv.innerHTML = randomWord[i];
+        newDiv.innerHTML = "j";
         blankDiv.appendChild(newDiv);
         newDiv.setAttribute("class", "insert");
         counter = randomWord.length;
     }
     console.log(randomWord);
     console.log(counter);
-}
+};
 
 function setWins() {
     var spanDiv = document.getElementById("winner");
@@ -64,7 +66,7 @@ function setWins() {
     newDiv.innerHTML = winCounter;
     spanDiv.appendChild(newDiv);
 
-}
+};
 
 function setlosses() {
     var spanDiv = document.getElementById("loser");
@@ -72,7 +74,7 @@ function setlosses() {
     newDiv.innerHTML = lossCounter;
     spanDiv.appendChild(newDiv);
 
-}
+};
 
 function winCount() {
     var changer = document.getElementById("winner");
@@ -82,7 +84,7 @@ function winCount() {
 function lossCount() {
     var changer = document.getElementById("loser");
     changer.textContent = lossCounter;
-}
+};
 
 function wrongGuess() {
     var blankP = document.getElementById("guesses");
@@ -90,7 +92,7 @@ function wrongGuess() {
     newP.innerHTML = guessed;
     blankP.appendChild(newP);
     newP.setAttribute("class", "guesser");
-}
+};
 
 function reveal(i) {
     var changer = document.getElementsByClassName("insert");
@@ -98,31 +100,42 @@ function reveal(i) {
     changer[i].style.color = "black";
     changer[i].style.borderColor = "transparent";
 
-}
+};
+
 
 
 setUp();
 setWins();
 setlosses();
-
-
 document.onkeyup = function(event) {
-
+validLettersGuessed = "DEG";
     userGuess = event.key;
     var userGuessCap = userGuess.toUpperCase();
+    console.log(validLettersGuessed.indexOf(userGuessCap) + "progress");
+    if (userGuessCap){
+    	if (validLetters.indexOf(userGuessCap) > -1)
+    	{
+    		console.log(userGuessCap);
+    		console.log(validLetters.indexOf(userGuessCap));
+    		console.log("awesome it worked ic");
+    	}
+    }
     guessCounter = 0;
-
-
+	
     for (var i = 0, n = randomWord.length; i < n; i++) {
-        if (userGuessCap == randomWord[i]) {
-            reveal(i);
-            counter--;
-            console.log(counter);
-        }
+        
+        if (userGuessCap == randomWord[i]) 
+        {
+        	if (document.getElementsByClassName("insert")[i].textContent == "p");
+				{
+				reveal(i);
+		        counter--;
+		        console.log(counter);
+		    	}
+	    }	      
 
         if (userGuessCap != randomWord[i]) {
             guessCounter++;
-
             guessed = userGuessCap;
             console.log("Guess counter is: " + guessCounter);
         }
@@ -156,6 +169,7 @@ document.onkeyup = function(event) {
 
 
 };
+
 
 
 

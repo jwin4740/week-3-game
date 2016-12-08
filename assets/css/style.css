@@ -108,6 +108,7 @@ section.drawing {
     font-size: 40px;
     font-weight: 700px;
     border-bottom: solid 3px black;
+    width: 30px;
     margin-left: 10px;
     text-align: center;
     color: transparent;
