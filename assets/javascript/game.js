@@ -1,3 +1,5 @@
+
+
 // // creating arrays for words//
 
 var bears = ["B", "E", "A", "R", "S"];
@@ -12,7 +14,7 @@ var counter;
 var guessed;
 var guessCounter;
 var wrongGuessCounter = 0;
-var boolWin = false;
+var boolOver = false;
 var winCounter = 0;
 var lossCounter = 0;
 var allLettersGuessed = "";
@@ -23,28 +25,6 @@ var allLettersGuessed = "";
 
 
 
-function reset() {
-    var clearBoard = document.getElementById("board");
-    var clearGuess = document.getElementById("guesses");
-    var clearLoss = document.getElementById("lose");
-    var clearWin = document.getElementById("win");
-    while (clearBoard.hasChildNodes()) {
-        clearBoard.removeChild(clearBoard.firstChild);
-    }
-    while (clearGuess.hasChildNodes()) {
-        clearGuess.removeChild(clearGuess.firstChild);
-    }
-    while (clearWin.hasChildNodes()) {
-        clearWin.removeChild(clearWin.firstChild);
-    }
-    while (clearLoss.hasChildNodes()) {
-        clearLoss.removeChild(clearLoss.firstChild);
-    }
-
-    setUp();
-    return;
-
-};
 
 function setUp() {
     randomWord = word[Math.floor(Math.random() * word.length)];
@@ -102,73 +82,137 @@ function reveal(i) {
 
 };
 
+	function alertWin (){
+		var blankP = document.getElementById("alert");
+	    var newP = document.createElement("h1");
+	    newP.innerHTML = "You won";
+	    blankP.appendChild(newP);
+};
+
+	function alertLoss (){
+		var blankP = document.getElementById("alert");
+	    var newP = document.createElement("h1");
+	    newP.innerHTML = "You Lossed";
+	    blankP.appendChild(newP);
+};
+
+function alertGuessedAlready (){
+		var blankP = document.getElementById("alert");
+	    var newP = document.createElement("h1");
+	    newP.innerHTML = "You already guessed that letter; try again";
+	    blankP.appendChild(newP);
+};
+
+function alertInvalidGuess (){
+		var blankP = document.getElementById("alert");
+	    var newP = document.createElement("h1");
+	    newP.innerHTML = "Invalid guess (not a letter); try again";
+	    blankP.appendChild(newP);
+};
+
+function reset() {
+    var clearBoard = document.getElementById("board");
+    var clearGuess = document.getElementById("guesses");
+    var clearLoss = document.getElementById("#lose");
+    var clearWin = document.getElementById("#win");
+    while (clearBoard.hasChildNodes()) {
+        clearBoard.removeChild(clearBoard.firstChild);
+    }
+    while (clearGuess.hasChildNodes()) {
+        clearGuess.removeChild(clearGuess.firstChild);
+    }
+    while (clearWin.hasChildNodes()) {
+        clearWin.removeChild(clearWin.firstChild);
+    }
+    while (clearLoss.hasChildNodes()) {
+        clearLoss.removeChild(clearLoss.firstChild);
+    }
+    setUp();
+    boolOver = false;
+    
+    return;
+    
+
+};
+
 
 
 setUp();
 setWins();
 setlosses();
+
 document.onkeyup = function(event) {
-validLettersGuessed = "DEG";
     userGuess = event.key;
+    console.log(boolOver);
     var userGuessCap = userGuess.toUpperCase();
-    console.log(validLettersGuessed.indexOf(userGuessCap) + "progress");
-    if (userGuessCap){
-    	if (validLetters.indexOf(userGuessCap) > -1)
-    	{
-    		console.log(userGuessCap);
-    		console.log(validLetters.indexOf(userGuessCap));
-    		console.log("awesome it worked ic");
-    	}
-    }
     guessCounter = 0;
-	
+    	
     for (var i = 0, n = randomWord.length; i < n; i++) {
         
-        if (userGuessCap == randomWord[i]) 
-        {
-        	if (document.getElementsByClassName("insert")[i].textContent == "p");
-				{
-				reveal(i);
-		        counter--;
-		        console.log(counter);
-		    	}
-	    }	      
+	    if (validLetters.indexOf(userGuessCap) > -1 && boolOver == false)
+	    {  
+	    	if (allLettersGuessed.indexOf(userGuessCap) > -1)
+		    {
+		    	alertGuessedAlready();
+		    	return;
+		    }
 
-        if (userGuessCap != randomWord[i]) {
-            guessCounter++;
-            guessed = userGuessCap;
-            console.log("Guess counter is: " + guessCounter);
-        }
-    }
+		    else   
+		    {
+		        if (userGuessCap == randomWord[i]) 
+		        {
+					reveal(i);
+					counter--;
+					console.log(counter);
+					 
+			    }	      
 
+		        if (userGuessCap != randomWord[i]) 
+		        {
+		            guessCounter++;
+		            guessed = userGuessCap;
+		            
+		        }
+	    	}
+	    }
+	    else
+	    {
+	    	alertInvalidGuess();
+	    	return;
+	    }	
+	}
+
+	allLettersGuessed += userGuessCap;
     if (guessCounter == randomWord.length) {
         wrongGuess();
         wrongGuessCounter++;
         console.log("Wrong is: " + wrongGuessCounter);
     }
-
+// user loses the game
     if (wrongGuessCounter == 5) {
         lossCounter++;
         lossCount();
-        setTimeout(function() { confirm("Play again???"); }, 10);
-        document.getElementById("lose").style.display = "block";
+       	alertLoss();
+       	boolOver = true;
+       	console.log(boolOver);
         wrongGuessCounter = 0;
         guessCounter = 0;
 
     }
-
+// user wins the game
     if (counter == 0) {
         winCounter++;
         winCount();
-        document.getElementById("win").style.display = "block";
-        setTimeout(function() { confirm("Play again??? Click 'Play again' button"); }, 500);
-        ev.stopPropagation();
+        alertWin();
+        boolOver = true;
+        console.log(boolOver);
         counter = randomWord.length;
 
     }
-
+console.log("You have guessed" + allLettersGuessed);
 
 };
+
 
 
 
@@ -206,7 +250,6 @@ $(function() {
         duplicated: false,
     });
 });
-
 
 
 
