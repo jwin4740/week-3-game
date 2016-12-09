@@ -38,6 +38,11 @@ main{
 	margin: 10px 10px 10px 0px;
 }
 
+h2{
+	margin-top: 25px;
+	padding: 10px;
+	border-top: dashed 1px black;
+}
 .replay{
 	width: 480px;
 	height: 50px;
@@ -78,7 +83,7 @@ main{
 }
 
 .alertwin {
-    color: #ff6600;
+    color: black;
     font-size: 40px;
     text-align: center;
     font-weight: 700;

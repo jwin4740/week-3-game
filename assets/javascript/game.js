@@ -7,8 +7,11 @@ var packers = ["P", "A", "C", "K", "E", "R", "S"];
 var fumble = ["F", "U", "M", "B", "L", "E"];
 var safety = ["S", "A", "F", "E", "T", "Y"];
 var cowboys = ["C", "O", "W", "B", "O", "Y", "S"];
+var touchdown = ["T", "O", "U", "C", "H", "D", "O", "W", "N"];
+var giants = ["G", "I", "A", "N", "T", "S"];
+
 var validLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var word = [bears, cowboys];
+var word = [bears, giants, touchdown, cowboys, packers, safety, fumble];
 var randomWord;
 var counter;
 var guessed;
@@ -208,7 +211,7 @@ document.onkeyup = function(event) {
         console.log("Wrong is: " + wrongGuessCounter);
     }
 // user loses the game
-    if (wrongGuessCounter == 5) {
+    if (wrongGuessCounter == 7) {
         lossCounter++;
         lossCount();
        	alertLoss();
@@ -260,7 +263,7 @@ $(function() {
         //speed in milliseconds of the marquee
         duration: 7500,
         //gap in pixels between the tickers
-        gap: 1000,
+        gap: 100,
         //time in milliseconds before the marquee will start animating
         delayBeforeStart: 0,
         //'left' or 'right'
