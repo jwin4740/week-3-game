@@ -10,7 +10,7 @@ var cowboys = ["C", "O", "W", "B", "O", "Y", "S"];
 var touchdown = ["T", "O", "U", "C", "H", "D", "O", "W", "N"];
 var giants = ["G", "I", "A", "N", "T", "S"];
 
-var validLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// var validLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var word = [bears, giants, touchdown, cowboys, packers, safety, fumble];
 var randomWord;
 var counter;
@@ -21,6 +21,16 @@ var boolOver = false;
 var winCounter = 0;
 var lossCounter = 0;
 var allLettersGuessed = "";
+
+var validLetters = [];
+for (var c = 65; c < 91; c++)
+{
+    validLetters.push(String.fromCharCode(c));
+    
+}
+
+console.log(validLetters);
+
 
 // START set up functions to be used
 
@@ -248,7 +258,7 @@ $(function() {
         //speed in milliseconds of the marquee
         duration: 7500,
         //gap in pixels between the tickers
-        gap: 500,
+        gap: 700,
         //time in milliseconds before the marquee will start animating
         delayBeforeStart: 0,
         //'left' or 'right'

@@ -30,12 +30,13 @@ body {
 }
 
 main{
-	margin: 0px 60px 50px 60px;
+	margin: 0px 60px 50px 30px;
 }
 
 .buttons{
-	
-	margin: 10px 10px 10px 0px;
+	clear: both;
+	box-sizing: border-box;
+	margin: 10px 10px 5px 0px;
 }
 
 h2{
@@ -44,14 +45,15 @@ h2{
 	border-top: dashed 1px black;
 }
 .replay{
+	box-sizing: border-box;
 	width: 480px;
-	height: 50px;
+	height: 45px;
 	cursor: pointer;
 	border-color: orange;
 	border-radius: 2px;
 	background-color: orange;
 	color: black;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 #title {
@@ -108,6 +110,7 @@ section.content {
     width: 450px;
     height: 350px;
     border: solid 15px black;
+   
 }
 
 section.drawing {
