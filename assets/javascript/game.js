@@ -83,59 +83,77 @@ function reveal(i) {
 };
 
 	function alertWin (){
-		var blankP = document.getElementById("alert");
+		var blankP = document.getElementById("gamestatus");
 	    var newP = document.createElement("h1");
-	    newP.innerHTML = "You won";
+	    newP.innerHTML = "You Win!!!";
 	    blankP.appendChild(newP);
+	    newP.setAttribute("class", "alertwin");
+
+
 };
 
 	function alertLoss (){
-		var blankP = document.getElementById("alert");
+		var blankP = document.getElementById("gamestatus");
 	    var newP = document.createElement("h1");
-	    newP.innerHTML = "You Lossed";
+	    newP.innerHTML = "You Lose!!!";
 	    blankP.appendChild(newP);
+	    newP.setAttribute("class", "alertloss");
+
 };
 
 function alertGuessedAlready (){
 		var blankP = document.getElementById("alert");
-	    var newP = document.createElement("h1");
+	    var newP = document.createElement("p");
 	    newP.innerHTML = "You already guessed that letter; try again";
 	    blankP.appendChild(newP);
+	    newP.setAttribute("class", "alertfont");
 };
 
 function alertInvalidGuess (){
 		var blankP = document.getElementById("alert");
-	    var newP = document.createElement("h1");
+	    var newP = document.createElement("p");
 	    newP.innerHTML = "Invalid guess (not a letter); try again";
 	    blankP.appendChild(newP);
+	    newP.setAttribute("class", "alertfont");
 };
 
 function reset() {
     var clearBoard = document.getElementById("board");
     var clearGuess = document.getElementById("guesses");
-    var clearLoss = document.getElementById("#lose");
-    var clearWin = document.getElementById("#win");
+    var clearAlert = document.getElementById("alert");
+    var clearGameStatus = document.getElementById("gamestatus");
+    // var clearLoss = document.getElementById("lose");
+    // var clearWin = document.getElementById("win");
     while (clearBoard.hasChildNodes()) {
         clearBoard.removeChild(clearBoard.firstChild);
     }
     while (clearGuess.hasChildNodes()) {
         clearGuess.removeChild(clearGuess.firstChild);
     }
-    while (clearWin.hasChildNodes()) {
-        clearWin.removeChild(clearWin.firstChild);
+    while (clearAlert.hasChildNodes()) {
+        clearAlert.removeChild(clearAlert.firstChild);
     }
-    while (clearLoss.hasChildNodes()) {
-        clearLoss.removeChild(clearLoss.firstChild);
+    while (clearGameStatus.hasChildNodes()) {
+        clearGameStatus.removeChild(clearGameStatus.firstChild);
     }
+    // while (clearLoss.hasChildNodes()) {
+    //     clearLoss.removeChild(clearLoss.firstChild);
+    // }
+    allLettersGuessed = "";
     setUp();
+
     boolOver = false;
     
     return;
     
 
 };
-
-
+function clearDuring (){
+var clearAlert = document.getElementById("alert");
+while (clearAlert.hasChildNodes()) {
+        clearAlert.removeChild(clearAlert.firstChild);
+    }
+}
 
 setUp();
 setWins();
@@ -143,6 +161,7 @@ setlosses();
 
 document.onkeyup = function(event) {
     userGuess = event.key;
+    clearDuring();
     console.log(boolOver);
     var userGuessCap = userGuess.toUpperCase();
     guessCounter = 0;
@@ -175,7 +194,7 @@ document.onkeyup = function(event) {
 		        }
 	    	}
 	    }
-	    else
+	    else if (boolOver == false)
 	    {
 	    	alertInvalidGuess();
 	    	return;
@@ -253,9 +272,3 @@ $(function() {
 
 
 
-// // do {
-
-// // 	guesser();
-
-// // }
-// // while ( win == false);

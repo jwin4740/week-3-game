@@ -77,6 +77,26 @@ main{
     letter-spacing: 2px;
 }
 
+.alertwin {
+    color: #ff6600;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: 0px;
+    letter-spacing: 1px;
+}
+
+.alertloss {
+    color: red;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: 0px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
 section.content {
 	float: left;
     position: relative;
@@ -113,17 +133,39 @@ section.drawing {
     text-align: center;
     color: transparent;
 }
-
+.alertfont{
+	font-size: 24px;
+	font-weight: 700;
+}
 .guesser {
-    display: inline-block;
-    width: 50px;
-    font-size: 40px;
-    font-weight: 700px;
+    
+    width: 75px;
+    font-size: 30px;
+    font-weight: 700;
     margin-left: 6px;
+    padding-left: 10px;
     text-align: center;
     color: black;
 }
 
+#guesses{
+	position: relative;
+	
+	height: 60px;
+	
+}
+
+#alert{
+	position: relative;
+	
+	height: 30px;
+}
+
+#gamestatus{
+	position: relative;
+	
+	height: 60px;
+}
 
 
 
@@ -160,9 +202,11 @@ section.drawing {
 
 span{
 	display: inline;
+	
 
 }
 
 p{
 	display: inline;
+	
 }
