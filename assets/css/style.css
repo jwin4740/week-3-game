@@ -1,14 +1,9 @@
-html,body{
-height: 100%;
-margin: 0;
-}
-
-
+html,
 body {
-	
-    margin: 0px;
-    
+    height: 100%;
+    margin: 0;
 }
+
 
 #totustuus {
     clear: both;
@@ -18,7 +13,6 @@ body {
     background-image: url(../images/hugenfl.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 .marqueetop {
@@ -29,31 +23,32 @@ body {
     background-image: url(../images/scoreboard2.jpg);
 }
 
-main{
-	margin: 0px 60px 50px 30px;
+main {
+    margin: 0px 60px 50px 30px;
 }
 
-.buttons{
-	clear: both;
-	box-sizing: border-box;
-	margin: 10px 10px 5px 0px;
+.buttons {
+    clear: both;
+    box-sizing: border-box;
+    margin: 10px 10px 5px 0px;
 }
 
-h2{
-	margin-top: 25px;
-	padding: 10px;
-	border-top: dashed 1px black;
+h2 {
+    margin-top: 25px;
+    padding: 10px;
+    border-top: dashed 1px black;
 }
-.replay{
-	box-sizing: border-box;
-	width: 480px;
-	height: 45px;
-	cursor: pointer;
-	border-color: orange;
-	border-radius: 2px;
-	background-color: orange;
-	color: black;
-	font-size: 25px;
+
+.replay {
+    box-sizing: border-box;
+    width: 480px;
+    height: 45px;
+    cursor: pointer;
+    border-color: orange;
+    border-radius: 2px;
+    background-color: orange;
+    color: black;
+    font-size: 25px;
 }
 
 #title {
@@ -65,7 +60,27 @@ h2{
     opacity: 0.75;
     letter-spacing: 5px;
 }
+#remaining{
+    float: left;
+    height: 300px;
+    width: 200px;
+    text-align: center;
+}
 
+#remainingNumber{
+    clear: both;
+    border: solid 5px black;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    letter-spacing: 1px;
+}
 #win {
     color: green;
     font-size: 40px;
@@ -94,6 +109,15 @@ h2{
     letter-spacing: 1px;
 }
 
+.alertguessleft {
+    color: black;
+    font-size: 40px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Allerta Stencil', sans-serif;
+    margin: 0px;
+    letter-spacing: 1px;
+}
 .alertloss {
     color: red;
     font-size: 40px;
@@ -105,16 +129,14 @@ h2{
 }
 
 section.content {
-	float: left;
+    float: left;
     position: relative;
     width: 450px;
     height: 350px;
     border: solid 15px black;
-   
 }
 
 section.drawing {
-   
     float: right;
     width: 200px;
     height: 350px;
@@ -141,12 +163,13 @@ section.drawing {
     text-align: center;
     color: transparent;
 }
-.alertfont{
-	font-size: 24px;
-	font-weight: 700;
+
+.alertfont {
+    font-size: 24px;
+    font-weight: 700;
 }
+
 .guesser {
-    
     width: 75px;
     font-size: 30px;
     font-weight: 700;
@@ -156,65 +179,55 @@ section.drawing {
     color: black;
 }
 
-#guesses{
-	position: relative;
-	
-	height: 60px;
-	
+#guesses {
+    position: relative;
+    height: 60px;
 }
 
-#alert{
-	position: relative;
-	
-	height: 30px;
+#alert {
+    position: relative;
+    height: 30px;
 }
 
-#gamestatus{
-	position: relative;
-	
-	height: 60px;
+#gamestatus {
+    position: relative;
+    height: 60px;
 }
 
 
-
-/*Scroll animation*/
-.winner{
-	color: green;
+.winner {
+    color: green;
     font-size: 40px;
     font-weight: 700;
     font-family: 'Allerta Stencil', sans-serif;
     margin: 0px;
     letter-spacing: 2px;
-
 }
 
-.loser{
-	color: red;
+.loser {
+    color: red;
     font-size: 40px;
     font-weight: 700;
     font-family: 'Allerta Stencil', sans-serif;
     margin: 0px;
     letter-spacing: 2px;
-
 }
+
 .marqueebottom {
-	clear: both;
-	position: absolute;
-	bottom: 0;
-	height: 60px;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
     width: 100%;
     padding-bottom: 0px;
     overflow: hidden;
     background-image: url(../images/scoreboard2.jpg);
 }
 
-span{
-	display: inline;
-	
-
+span {
+    display: inline;
 }
 
-p{
-	display: inline;
-	
+p {
+    display: inline;
 }
